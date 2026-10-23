@@ -12,20 +12,20 @@ while (n <= 100) {
 
 
 while (true) {
-    console.log("반복합니다");
+    console.log("반복됩니다!")
     if (true) {
         break;
     }
 }
-// "최초 화면을 띄우기 위한 코드 덩어리"
-// 이 코드 x는 무조건 1번 실행되어야 함 => 이후에는 여러가지 에러가 나올 수 있음
+
+
 // do - while 반복문
-// do {최초 1회 보장, 반복되는 코드블록 } while(조건식);
+// do { 최초 1회 보장, 반복되는 코드블록 } while(조건식);
 
 var tries = 10;
 do {
-    console.log("do-while은 최소 한 번은 실행됩니다. tries = " + tries)
-}while (tries < 5);
+    console.log("do-while은 최소 한 번은 실행됩니다. tries = " + tries);
+} while(tries < 5);
 
 
 
@@ -33,16 +33,10 @@ do {
 
 for (var j = 1; j <= 10; j++) {
     if (j === 6) {
-        break;       // 반복을 진행하다가, j가 6인 사이클에서 for를 종료하겠다
+        break;    // 반복을 진행하다가, j가 6인 사이클에서 for를 종료하겠다
     }
     if (j % 2 === 0) {
-        continue;       // j가 짝수인 사이클에서는 이 아래로 진행하지 않겠다
+        continue;    // j가 짝수인 사이클에서는 이 아래로 진행하지 않겠다
     }
-    console.log("흡수 : ", j);
+    console.log("홀수 : ", j);
 }
-// 첫번째 사이클 -> 콘솔 나옴
-// 두번째 사이클 j = 2, 두번째 if가 실행, continue
-// 세번째 사이클 j = 3, 콘솔 나옴 => 즘감식 만나 j = 4
-// 네번째 사이클 j = 4, 두번째 if가 실행, continue => 증감식 j = 5
-// 다섯번째 사이클 j = 5, 콘솔 나옴 => 즘감식 만나 j = 6
-// 여섯번째 사이클 j = 6, 조건식은 통과되서 실행 => 첫번째 if break

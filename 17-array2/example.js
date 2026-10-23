@@ -1,4 +1,4 @@
-// find 메서드 : 조건에 맞는 첫번째 요소를 반환하는 메서드
+// find 메서드 : 조건에 맞는 첫 번째 요소를 반환하는 메서드
 //              조건에 맞는 모든 요소를 돌려주는게 아님!
 
 const arr = ["apple", "banana", "melon"];
@@ -10,10 +10,10 @@ const arr = ["apple", "banana", "melon"];
 // arr.find((item) => { return item === "banana" });
 arr.find(item => item === "banana");
 
-// arr의 요소가 3개이므로 3번 순회하는 것이 목표
-// 1번째 순회: item에 "apple"이 들어가서 "apple" === "banana"를 확인하고 false로 이번 순회 종료
-// 2번째 순회: item에 "banana"가 들어가서 "banana" === "banana"를 확인하고 true로 확인하여 "banana"를 리턴하고 find 종료
-// 3번째 순회: 3번째 순회는 없음
+// arr의 요소가 3개니까 3번 순회하는게 목표
+// 1번째 순회 : item에 "apple"이 들어가서 "apple" === "banana"를 확인하고 false로 이번 순회 종료
+// 2번째 순회 : item에 "banana"가 들어가서 "banana" === "banana"를 확인하고 true로 확인하여 "banana"를 리턴하고 find 종료
+// 3번째 순회는 없음.
 
 
 const products = [
@@ -27,23 +27,23 @@ const products = [
 // 내 사이트의 상품들 중 상품명이 "책상"이라는 것을 검색해오고 싶다
 // products.find(함수);
 // products.find(() => {});
-// products.find((item) => {});       // 순회할 때의 그 요소가 들어오는 자리를 나는 item이라고 부르겠다
-// products.find((item) => {return item.name === "책상"});   // 순회할 때 들어온 그 요소의 name 프로퍼티 값과 "책상"을 비교
+// products.find((item) => {});     // 순회할 때의 그 요소가 들어오는 자리를 나는 item이라고 부르겠다
+// products.find((item) => { return item.name === "책상" });  // 순회할 때 들어온 그 요소의 name 프로퍼티 값과 "책상"을 비교
 const desk = products.find(item => item.name === "책상");
 // desk 안에는 { id: 3, name: "책상", price: 150000, category: "가구", stock: 5 } 가 들어감
 
 const speaker = products.find(item => item.name === "스피커");
-// 검색을 했는데 조건에 맞는게 없다면 결국 '값이 없다' 인거고, 그것은 undefined로 평가됨
+// 검색을 했는데 조건에 맞는게 없다면 결국 '값이 없다'인거고, 그것은 undefined로 평가됨
 
 
 
 // .find() 메서드에 들어가는 매개변수는 1자리 이고, 그 자리는 함수가 들어가며 함수의 모양은 () => {}
-//                    그래서 그 함수에 대해서만 보게 되면
-//                    매개변수 자리엔 총 3개의 값을 find메서드가 넣어줌
-//                    (item, index, array) => {}
-//                     item : 현재 순회하고 있는 대상 요소
-//                           index : 현재 순회하고 있는 대상 요소의 인덱스 번호
-//                                  array : 원본 array
+//                   그래서 그 함수에 대해서만 보게 되면
+//                   매개변수 자리엔 총 3개의 값을 find메서드가 넣어줌
+//                   (item, index, array) => {}
+//                    item : 현재 순회하고 있는 대상 요소
+//                          index : 현재 순회하고 있는 대상 요소의 인덱스 번호
+//                                 array : 원본 array
 
 // 함수라고 하는 녀석은 들어가는 값인 매개변수라는 것과 실제 실행이 되는 내용인 함수 몸통이라고 하는 부분
 // 매개변수의 자리가 중요함. 이 함수를 실행시킬 때 몇 개의 값을 가지고서 실행할 것이냐는 걸 결정
@@ -55,16 +55,16 @@ const speaker = products.find(item => item.name === "스피커");
 
 const list = [1, 2, 3, 4, 5];
 
-list.find(item => item ===4)
-// 1 순회 : find메서드는 주어진 함수에게 매개변수 첫 자리에 이번 순회 때의 요소값인 1, 두번째 자리에 이번 순회 때의 요소 인덱사인 0, 세번째 자리에 원본 array [1, 2, 3, 4, 5]
-//                  하지만 우리가 쓴 함수는 (item) => item === 4 이기 때문에 값을 넣어도 받을 수 있는 게 첫번째 자리밖에 받을 수 없음
+list.find(item => item === 4);
+// 1 순회 : find메서드는 주어진 함수에게 매개변수 첫 자리에 이번 순회 때의 요소값인 1, 두번째 자리에 이번 순회 때의 요소 인덱스인 0, 세번째 자리에 원본 array [1, 2, 3, 4, 5]
+//                 하지만 우리가 쓴 함수는 (item) => item === 4  이기 때문에 값을 넣어도 받을 수 있는 게 첫번째 자리밖에 받을 수 없음
 // 2 순회 : 첫 자리에 요소값 2, 두번째 자리에 인덱스값 1, 세번째 자리에 원본 array [1, 2, 3, 4, 5]
 // 3 순회 : 첫 자리에 요소값 3, 두번째 자리에 인덱스값 2, 세번째 자리에 원본 array [1, 2, 3, 4, 5]
-// 4 순회 : ....        ( true 가 나와서 상황 종료 )
-// 5 순회 : ....        (X)
+// 4 순회 : ....       ( true 가 나와서 상황 종료 )
+// 5 순회 : ....       (X)
 
 list.find(() => {})
-list.find((item, index, array) => { return item === 4 });
+list.find ((item, index, array) => { return item === 4 });
 list.find((item) => { return item === 4 });
 list.find(item => item === 4);
 
@@ -92,7 +92,7 @@ const speakerIndex = products.findIndex(item => item.name === "스피커");
 
 
 // filter 메서드 : 조건에 맞는 모든 요소들에 대한 검색을 해주는 메서드
-//                                   => 그에 대한 변환값은 배열(array)로 반환됨
+//                                  => 그에 대한 반환값은 배열(array)로 반환됨
 
 // products.filter(함수)
 // products.filter(() => {})
@@ -104,17 +104,17 @@ const furniture = products.filter(item => item.category === "가구");
 //     { id: 4, name: "의자", price: 90000, category: "가구", stock: 2 },
 // ]
 
-const inStock = products.filter(item => item.stock > 0); // 내가 갖고 있는 상품 중 재고 있는 것들을 검색
+const inStock = products.filter(item => item.stock > 0);  // 내가 갖고 있는 상품 중 재고 있는 것들을 검색
 
 const food = products.filter(item => item.category === "식품");
 // food = [];
 // filter 메서드는 배열을 반환값에 준비해놓고, 조건에 맞는 값(true)들을 push함
 
 
-// 조건에 맞는 데이터가 있는지 체크하는 3가지 방식 비교
-// find 메서드로 값이 있는지 없는지 체크         => if (result)
-// findIndex 메서드로 값이 있는지 없는지 체크    => if (result !== -1)
-// filter 메서드로 값이 있는지 없는지 체크       => if (result.length > 0)
+// 조건에 맞는게 있는지 없는지 체크를 3방식으로 해본다면,
+// find 메서드는 값이 있는지 없는지 체크        => if (result)
+// findIndex 메서드로 값이 있는지 없는지 체크   => if (result !== -1)
+// filter 메서드로 값이 있는지 없는지 체크      => if (result.length > 0)
 
 
 
@@ -125,9 +125,9 @@ const food = products.filter(item => item.category === "식품");
 
 // products.some(함수)
 // products.some(() => {})
-// products.some((이번 순회에 해당하는 요소가 들어오는 자리) => { return 검색 조건 })
+// products.some((이번 순회에 해당하는 요소가 들어오는 자리) => { return 검색 조건 }
 // products.some((p) => { return p.stock === 0 })
-console.log("some - 품절 상품이 있냐?", products.some(p => p.stock === 0)); // some - 품절 상품이 있냐? true
+console.log("some - 품절 상품이 있나?", products.some(p => p.stock === 0));  // some - 품절 상품이 있나? true
 
 
 
@@ -146,14 +146,14 @@ console.log("every - 모두 10만원 이하인가?", products.every(p => p.price
 // products.map((item, index, array) => { return item.name });
 // products.map((item) => { return item.name });
 products.map(item => item.name);
-// 1순회 때 ->     map의 결과값 : ["노트북"]
-// 2순회 때 ->     map의 결과값 : ["노트북", "마우스"]
-// 3순회 때 ->                   ["노트북", "마우스", "책상"]
-// 4순회 때 ->                   ["노트북", "마우스", "책상", "의자"]
-// 5순회 때 ->                   ["노트북", "마우스", "책상", "의자", "키보드"]
+// 1순회 때 ->    map의 결과값 : ["노트북"]
+// 2순회 때 ->    map의 결과값 : ["노트북", "마우스"]
+// 3순회 때 ->                  ["노트북", "마우스", "책상"]
+// 4순회 때 ->                  ["노트북", "마우스", "책상", "의자"]
+// 5순회 때 ->                  ["노트북", "마우스", "책상", "의자", "키보드"]
 // 최종 map()을 돌린 리턴값 ["노트북", "마우스", "책상", "의자", "키보드"]
 
-const salePrices = products.map(item => {
+const salePrices = products.map((item) => {
     return { name: item.name, price: item.price * 0.9 }
 });
 
@@ -163,7 +163,7 @@ const salePrices = products.map(item => {
 // 4 순회 : 리턴값 : { name: "의자", price: 81000 }
 // 5 순회 : 리턴값 : { name: "키보드", price: 63000 }
 
-salePrices = [
+salePrice = [
     { name: "노트북", price: 1080000 },
     { name: "마우스", price: 22500 },
     { name: "책상", price: 135000 },
@@ -181,40 +181,40 @@ salePrices = [
 
 // products의 재고 합계를 구하는 예제
 // products.reduce()
-// products.reduce(() => {}, 0)     // 우리가 구하고 싶은 값인 '재고 함계'는 초기값이 0
-products.reduce((sum,item) => { return sum + item.stock }, 0)
+// products.reduce(() => {}, 0)     // 우리가 구하고 싶은 값인 '재고 합계'는 초기값이 0
+products.reduce((sum, item) => { return sum + item.stock }, 0)
 
 // reduce가 실행되면 초기값 0을 세팅
-// 1순회 때 -> reduce는 sum에 0, item 이번 순회 요소를 집어넣어줌. 함수 몸통이 실행되어서, 0 + 3 = 3을 리턴 -> 이 리턴값이 다음 순회 때 sum 값이 됨
-// 2순회 때 -> reduce는 sum에 3, item에 이번 순회 요소. 3 + 0 = 3을 리턴 -> 다음 순회 sum이 3
-// 3순회 때 -> reduce는 sum에 3, item에 이번 순회 요소. 3 + 5 = 8을 리턴 -> 다음 순회 sum이 8
+// 1순회 때 -> reduce는 sum에 0, item 이번 순회 요소를 집어넣어줌. 함수 몸통이 실행되어서, 0 + 3 = 3을 리턴   -> 이 리턴값이 다음 순회 때 sum 값이 됨
+// 2순회 때 -> reduce는 sum에 3, item에 이번 순회 요소.  3 + 0 = 3을 리턴 -> 다음 순회 sum이 3
+// 3순회 때 -> reduce는 sum에 3, item에 이번 순회 요소.  3 + 5 = 8을 리턴 -> 다음 순회 sum이 8
 
-// 마지막 순회 때 -> 계산을 다 마치고 나은 리턴값이 결과로 나감
-
-
+// 마지막 순회 때 ->   계산을 다 마치고 나온 리턴값이 결과로 나감
 
 
 
-// sort 메서드 : 원본 배열의 요소를 순회해가면서 정렬하는 메서드        // !! 결과값이 따로 있는게 아니라 원본 자체를 바꾸는 일 !!
-// 오름차순 (ascending / asc) - 작은 값에서부터 큰 값으로 정렬 할 때      / 가나다순 , a~z
-// 내림차순 (descending / desc) - 큰 값에서부터 직은 값으로 정렬 할 때
+
+
+// sort 메서드 : 원본 배열의 요소를 순회해가면서 정렬하는 메서드      // !! 결과값이 따로 있는게 아니라 원본 자체를 바꾸는 일 !!
+// 오름차순 (ascending / asc) - 작은 값에서부터 큰 값으로 정렬 할 때     / 가나다순 , a~z
+// 내림차순 (descending / desc) - 큰 값에서부터 작은 값으로 정렬 할 때
 
 // sort(함수)
 // sort(() => {})
-// sort((앞요소, 뒤요소) => { return 숫자를 바꿀지 말지를 결정하는 코드 })
+// sort((앞요소, 뒷요소) => { return 순서를 바꿀지 말지를 결정하는 코드 })
 // 순서를 바꿀지 말지를 결정하는 코드 결과값이 양수면 자리를 바꾸고, 아니면 지나감
 
 // 안에 들어있는 비교 대상이 숫자라면
 const nums = [5, 2, 8, 1];
 // nums.sort();
 // nums.sort(() => {});
-nums.sort((a, b) => { return a - b });      // 오름차순
-// 첫번째 순회 -> a: 5, b: 2    -> 5 - 2 = 3      => 결과값이 양수가 나왔으므로 자리를 바꿈        =>    [2, 5, 8, 1]
-// 두번째 순회 -> a: 5, b: 8    -> 5 - 8 = -3     => 결과값이 음수, 그냥 지나감                   =>    [2, 5, 8, 1]
-// 세번째 순회 -> a: 8, b: 1    -> 8 - 1 = 7      => 결과값이 양수, 자리를 바꿈                   =>    [2, 5, 1, 8]
+nums.sort((a, b) => { return a - b });     // 오름차순
+// 첫번째 순회 -> a: 5, b: 2   -> 5 - 2 = 3      => 결과값이 양수가 나왔으므로 자리를 바꿈         =>   [2, 5, 8, 1]
+// 두번째 순회 -> a: 5, b: 8   -> 5 - 8 = -3     => 결과값이 음수, 그냥 지나감                   =>   [2, 5, 8, 1]
+// 세번째 순회 -> a: 8, b: 1   -> 8 - 1 = 7      => 결과값이 양수, 자리를 바꿈                   =>   [2, 5, 1, 8]
 // 마지막 순회 -> 맨 앞 요소와 방금 전 순회의 결과를 비교 -> 2 - 1 = 1  => 결과값이 양수, a 앞으로 배치 => [1, 2, 5, 8]
 
-nums.sort((a, b) => { return b - a });      // 내림차순
+nums.sort((a, b) => { return b - a });     // 내림차순
 
 
 // products의 가격을 오름차순으로 정렬하고 싶다
@@ -227,13 +227,13 @@ products.sort((a, b) => { return a.price - b.price });
 
 
 // 비교 대상이 문자라면?
-products.sort((a, b) => {return a.name.localeCompare(b.name);});        // 오름차순
-products.sort((a, b) => {return b.name.localeCompare(a.name);});        // 내림차순
+products.sort((a, b) => { return a.name.localeCompare(b.name); });         // 오름차순
+products.sort((a, b) => { return b.name.localeCompare(a.name); });         // 내림차순
 
 // string 타입인 변수에 사용할 수 있는 .localeCompare() 메서드
 //         .localeCompare() 메서드 : a 변수를 기준으로 매개변수로 들어온 문자열을 비교해주는 메서드. -1, 0, 1 중 하나를 반환
-//      ("가").localeCompare("나")   =>  -1           // 앞의 문자가 뒤의 문자보다 앞서있다    => 오름차순
-//      ("나").localeCompare("가")   =>   1           // 뒤의 문자가 앞의 문자보다 앞서있다    => 내림차순
+//      ("가").localeCompare("나")   =>  -1          // 앞의 문자가 뒤의 문자보다 앞서있다    => 오름차순
+//      ("나").localeCompare("가")   =>   1          // 뒤의 문자가 앞의 문자보다 앞서있다    => 내림차순
 
 
 
@@ -258,4 +258,3 @@ const temp1 = products.filter((item) => item.stock > 0)
 
 temp1.map(item => { return item.name })
     .forEach((item) => console.log(item));
-

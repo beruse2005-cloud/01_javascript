@@ -33,7 +33,7 @@ switch (true) {
         break;
     default:
         console.log("F");
-        // 맨 마지막 case 또는 default는
-        // break을 쓰지 않아도 됨. (필요 X)
-        // 어차피 코드가 끝나기 때문
+    // 맨 마지막 case 또는 default엔
+    // break를 쓰지 않아도 됨. (필요 X)
+    // 어차피 코드가 끝나기 때문
 }
